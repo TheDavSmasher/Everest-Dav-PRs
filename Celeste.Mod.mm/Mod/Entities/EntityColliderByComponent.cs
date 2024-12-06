@@ -9,13 +9,7 @@ namespace Celeste.Mod.Entities {
     /// Performs the Action provided on collision. 
     /// </summary>
     /// <typeparam name="T">The specific type of Component this component should try to collide with</typeparam>
-    [Tracked(false)]
     public class EntityColliderByComponent<T> : Component where T : Component {
-        /// <summary>
-        /// Provides a simple way to know the Component type of the specific Collider
-        /// </summary>
-        public Type ComponentType => typeof(T);
-
         /// <summary>
         /// The Action invoked on Collision, with the Component collided with passed as a parameter
         /// </summary>
