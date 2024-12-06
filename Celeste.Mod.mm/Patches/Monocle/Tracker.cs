@@ -48,8 +48,7 @@ namespace Monocle {
             _temporaryAllTypes ??= GetAllTypesUncached();
             
             List<Type> subclasses = new();
-            foreach (Type otherType in _temporaryAllTypes)
-            {
+            foreach (Type otherType in _temporaryAllTypes) {
                 if (type != otherType && type.IsAssignableFrom(otherType))
                     subclasses.Add(otherType);
             }
@@ -95,8 +94,8 @@ namespace Monocle {
                 throw new Exception("Type '" + type.Name + "' cannot be Tracked" + (trackedAsType != type ? "As" : "") + " because it does not derive from Entity or Component");
             }
             // copy the registered types for the target type
-            ((bool)trackedEntity ? StoredEntityTypes : StoredComponentTypes).Add(type);
-            Dictionary<Type, List<Type>> tracked = (bool)trackedEntity ? TrackedEntityTypes : TrackedComponentTypes;
+            ((bool) trackedEntity ? StoredEntityTypes : StoredComponentTypes).Add(type);
+            Dictionary<Type, List<Type>> tracked = (bool) trackedEntity ? TrackedEntityTypes : TrackedComponentTypes;
             if (!type.IsAbstract) {
                 if (!tracked.TryGetValue(type, out List<Type> value)) {
                     value = new List<Type>();
